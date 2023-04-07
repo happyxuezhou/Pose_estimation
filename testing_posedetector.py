@@ -7,6 +7,8 @@ pTime = 0
 detector = pm.PoseDetector()
 while True:
     success, img = cap.read()
+    if not success:
+        break
     img = detector.findPose(img)
     lmList = detector.getPosition(img)
     print(lmList)
